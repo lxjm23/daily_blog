@@ -15,8 +15,14 @@ mongoose.connect("mongodb+srv://ljm12543:Jmlopez2001@cluster0.szsdpic.mongodb.ne
 
 //database schema
 const postsSchema ={
-  title : String,
-  content : String
+  title : {
+    type: String,
+    required : true
+  },
+  content : {
+    type: String,
+    required : true
+  }
 }
 
 //data base model
@@ -67,6 +73,7 @@ app.post("/compose", function(req, res){
   post.save(function(err){
     if(!err) return res.redirect("/")
   });
+  
   
 })
 
